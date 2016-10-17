@@ -1,35 +1,26 @@
-% ‰Û‘è‚P@•W–{‰»ŠÔŠu‚Æ‹óŠÔ‰ğ‘œ“x
-% ‰æ‘œ‚ğƒ_ƒEƒ“ƒTƒ“ƒvƒŠƒ“ƒO‚µ‚Äi•W–{‰»ŠÔŠu‚ğ‘å‚«‚­‚µ‚Äj
-% •\¦‚¹‚æD
-% ‰º‹L‚ÍƒTƒ“ƒvƒ‹ƒvƒƒOƒ‰ƒ€‚Å‚ ‚éD
-% ‰Û‘èì¬‚É‚ ‚½‚Á‚Ä‚ÍuLennavˆÈŠO‚Ì‰æ‘œ‚ğ—p‚¢‚æD
+% èª²é¡Œ1ã€€æ¨™æœ¬åŒ–é–“éš”ã¨ç©ºé–“è§£åƒåº¦
+% ç”»åƒã‚’ãƒ€ã‚¦ãƒ³ã‚µãƒ³ãƒ—ãƒªãƒ³ã‚°ã—ã¦(æ¨™æœ¬åŒ–é–“éš”ã‚’å¤§ããã—ã¦)è¡¨ç¤ºã›ã‚ˆï¼
 
-clear; % •Ï”‚ÌƒI[ƒ‹ƒNƒŠƒA
+clear;      % å¤‰æ•°ã®ã‚¯ãƒªã‚¢
+close all;  % å›³è¡¨ã®ã‚¯ãƒªã‚¢
 
-ORG=imread('Lenna.png'); % Œ´‰æ‘œ‚Ì“ü—Í
-imagesc(ORG); axis image; % ‰æ‘œ‚Ì•\¦
-pause; % ˆê’â~
+org_img = imread('asagao.png'); % åŸç”»åƒã®èª­ã¿è¾¼ã¿
+subplot(231);
+image(org_img);                 % åŸç”»åƒã®è¡¨ç¤º
+axis image;                     % æ­£æ–¹å½¢æ¯”ç‡ã«
+xlabel('Original Image');       
 
-IMG = imresize(ORG,0.5); % ‰æ‘œ‚Ìk¬
-IMG2 = imresize(IMG,2,'box'); % ‰æ‘œ‚ÌŠg‘å
-imagesc(IMG2); axis image; % ‰æ‘œ‚Ì•\¦
-pause; % ˆê’â~
+for i = 2:6
+    ratio = 2^(i-1);        % ãƒ€ã‚¦ãƒ³ã‚µãƒ³ãƒ—ãƒªãƒ³ã‚°æ¯”ç‡
+    % 1/ratio å€ã«ç¸®å°å¾Œï¼Œratioå€ã«æ‹¡å¤§ã™ã‚‹ã“ã¨ã§
+    % 1/ratio å€ã®ãƒ€ã‚¦ãƒ³ã‚µãƒ³ãƒ—ãƒªãƒ³ã‚°æ“ä½œã‚’è¡Œãˆã‚‹
+    res_img = imresize(imresize(org_img, 1/ratio), ratio, 'box');
+    subplot(2, 3, i);
+    image(res_img);         % ãƒ€ã‚¦ãƒ³ã‚µãƒ³ãƒ—ãƒªãƒ³ã‚°ç”»åƒã®è¡¨ç¤º
+    axis image;             % æ­£æ–¹å½¢æ¯”ç‡ã«
+    xlabel(['1/', num2str(ratio), ' Sampling']);
+    
+    imwrite(res_img, ['asagao_', num2str(i), '.png']);  % ç”»åƒã®ä¿å­˜
+end
 
-IMG = imresize(IMG,0.5); % ‰æ‘œ‚Ìk¬
-IMG2 = imresize(IMG,4,'box'); % ‰æ‘œ‚ÌŠg‘å
-imagesc(IMG2); axis image; % ‰æ‘œ‚Ì•\¦
-pause; % ˆê’â~
-
-IMG = imresize(IMG,0.5); % ‰æ‘œ‚Ìk¬
-IMG2 = imresize(IMG,8,'box'); % ‰æ‘œ‚ÌŠg‘å
-imagesc(IMG2); axis image; % ‰æ‘œ‚Ì•\¦
-pause; % ˆê’â~
-
-IMG = imresize(IMG,0.5); % ‰æ‘œ‚Ìk¬
-IMG2 = imresize(IMG,16,'box'); % ‰æ‘œ‚ÌŠg‘å
-imagesc(IMG2); axis image; % ‰æ‘œ‚Ì•\¦
-pause; % ˆê’â~
-
-IMG = imresize(IMG,0.5); % ‰æ‘œ‚Ìk¬
-IMG2 = imresize(IMG,32,'box'); % ‰æ‘œ‚ÌŠg‘å
-imagesc(IMG2); axis image; % ‰æ‘œ‚Ì•\¦
+return;

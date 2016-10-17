@@ -6,6 +6,10 @@
 # 課題1 標本化間隔と空間解像度
 画像をダウンサンプリングして(標本化間隔を大きくして)表示せよ．
 
+[レポート](https://github.com/HackMasegawa/lecture_image_processing/blob/master/kadai01/kadai1.md)
+
+[ソースコード](https://github.com/HackMasegawa/lecture_image_processing/blob/master/kadai01/kadai1.m)
+
 # 課題2 階調数と疑似輪郭
 2階調，4階調，8階調の画像を生成せよ．
 

@@ -1,25 +1,28 @@
-% 課題２　階調数と疑似輪郭
-% ２階調，４階調，８階調の画像を生成せよ．
-% 下記はサンプルプログラムである．
-% 課題作成にあたっては「Lenna」以外の画像を用いよ．
+% 課題2 階調数と疑似輪郭
+% 2階調，4階調，8階調の画像を生成せよ．
 
-clear; % 変数のオールクリア
+clear;      % 変数のクリア
+close all;  % 図表のクリア
 
-ORG=imread('Lenna.png'); % 原画像の入力
-ORG = rgb2gray(ORG); colormap(gray); colorbar;
-imagesc(ORG); axis image; % 画像の表示
-pause; % 一時停止
+BIT_MAX = 255;                  % 画素の最大値
 
-% ２階調画像の生成
-IMG = ORG>128;
-imagesc(IMG); colormap(gray); colorbar;  axis image;
-pause;
+org_img = imread('asagao.png'); % 原画像の入力
+org_gray = rgb2gray(org_img);   % グレイスケール化
+imagesc(org_gray);              % 画像の表示
+colormap(gray);                 % グレースケールの範囲で表示
+colorbar;                       % カラーバーの表示
+axis image;                     % 正方比率に
 
-% ４階調画像の生成
-IMG0 = ORG>64;
-IMG1 = ORG>128;
-IMG2 = ORG>192;
-IMG = IMG0 + IMG1 + IMG2;
-imagesc(IMG); colormap(gray); colorbar;  axis image;
+for i = 1:3
+    figure(i);                  
+    
+    color = 2^i;                % 階調数(2, 4, 8)
+    % (color-1)個のしきい値を作ることで(color)階調に変換
+    pos_img = org_gray ./ (BIT_MAX/(color-1)) * (BIT_MAX/(color-1));
+    imagesc(pos_img);          % 画像の表示
+    colormap(gray);             % グレースケールの範囲で表示
+    colorbar;                   % カラーバーの表示
+    axis image;                 % 正方比率に
+end
 
-% ８階調については，各自検討してください．
+return;

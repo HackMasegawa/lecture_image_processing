@@ -1,28 +1,24 @@
-% 課題３　閾値処理
-% 閾値を4パターン設定し,閾値処理た画像を示せ．
-% 下記はサンプルプログラムである．
-% 課題作成にあたっては「Lenna」以外の画像を用いよ．
+% 課題3 閾値処理
+% 閾値を4パターン設定し，閾値処理した画像を示せ．
 
-clear; % 変数のオールクリア
+clear;      % 変数のクリア
+close all;  % 図表のクリア
 
-ORG=imread('Lenna.png'); % 原画像の入力
-ORG= rgb2gray(ORG); % カラー画像を白黒濃淡画像へ変換
+BIT_MAX = 255;                  % 画素の最大値
 
-imagesc(ORG); colormap(gray); colorbar; % 画像の表示
-pause;
+org_img = imread('asagao.png'); % 原画像の入力
+org_gray = rgb2gray(org_img);   % グレイスケール化
 
-IMG = ORG > 64; % 輝度値が64以上の画素を1，その他を0に変換
-imagesc(IMG); colormap(gray); colorbar;
-pause;
+for i = 1:4
+    figure(i);                  
+    
+    % 輝度が (BIT_MAX * (i/5)) より大きい画素を1，それ以外を0に
+    % 閾値には51，102，153，204の4パターンを選択
+    thr_img = org_gray > (BIT_MAX * (i/5));
+    imagesc(thr_img);           % 画像の表示
+    colormap(gray);             % グレースケールの範囲で表示
+    colorbar;                   % カラーバーの表示
+    axis image;                 % 正方比率に
+end
 
-IMG = ORG > 96;
-imagesc(IMG); colormap(gray); colorbar;
-pause;
-
-IMG = ORG > 128;
-imagesc(IMG); colormap(gray); colorbar;
-pause;
-
-IMG = ORG > 192;
-imagesc(IMG); colormap(gray); colorbar;
-
+return;

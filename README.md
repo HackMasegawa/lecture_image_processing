@@ -13,8 +13,16 @@
 # 課題2 階調数と疑似輪郭
 2階調，4階調，8階調の画像を生成せよ．
 
+[レポート](https://github.com/HackMasegawa/lecture_image_processing/blob/master/kadai02/kadai2.md)
+
+[ソースコード](https://github.com/HackMasegawa/lecture_image_processing/blob/master/kadai02/kadai2.m)
+
 # 課題3 閾値処理
 閾値を4パターン設定し,閾値処理た画像を示せ．
+
+[レポート](https://github.com/HackMasegawa/lecture_image_processing/blob/master/kadai03/kadai3.md)
+
+[ソースコード](https://github.com/HackMasegawa/lecture_image_processing/blob/master/kadai03/kadai3.m)
 
 # 課題4 画像のヒストグラム
 画素の濃度ヒストグラムを生成せよ．

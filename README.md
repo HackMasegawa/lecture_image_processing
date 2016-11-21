@@ -27,6 +27,10 @@
 # 課題4 画像のヒストグラム
 画素の濃度ヒストグラムを生成せよ．
 
+[レポート](https://github.com/HackMasegawa/lecture_image_processing/blob/master/kadai04/kadai4.md)
+
+[ソースコード](https://github.com/HackMasegawa/lecture_image_processing/blob/master/kadai04/kadai4.m)
+
 # 課題5 判別分析法
 判別分析法を用いて画像二値化せよ．
 

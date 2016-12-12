@@ -44,6 +44,10 @@
 # 課題7 ダイナミックレンジの拡大
 画素のダイナミックレンジを0から255にせよ．
 
+[レポート](https://github.com/HackMasegawa/lecture_image_processing/blob/master/kadai07/kadai7.md)
+
+[ソースコード](https://github.com/HackMasegawa/lecture_image_processing/blob/master/kadai07/kadai7.m)
+
 # 課題8 ラベリング
 二値化された画像の連結成分にラベルをつけよ．
 

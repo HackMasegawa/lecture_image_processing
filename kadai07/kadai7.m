@@ -1,20 +1,35 @@
-% 課題7　ダイナミックレンジの拡大
-% 画素のダイナミックレンジを０から２５５にせよ． 
-% 下記はサンプルプログラムである． 
-% 課題作成にあたっては「Lenna」以外の画像を用いよ． 
-% 例
+% 課題7 ダイナミックレンジの拡大
+% 画素のダイナミックレンジを0から255にせよ． 
 
-ORG = imread('Lenna.jpg'); % 画像の読み込み
-ORG = rgb2gray(ORG); % 白黒濃淡画像に変換
-imagesc(ORG); colormap(gray); colorbar; % 画像の表示
-pause;
-imhist(ORG); % 濃度ヒストグラムを生成、表示
-pause;
-ORG = double(ORG);
-mn = min(ORG(:)); % 濃度値の最小値を算出
-mx = max(ORG(:)); % 濃度値の最大値を算出
-ORG = (ORG-mn)/(mx-mn)*255;
-imagesc(ORG); colormap(gray); colorbar; % 画像の表示
-pause;
-ORG = uint8(ORG); % この行について考察せよ
-imhist(ORG); % 濃度ヒストグラムを生成、表示
+clear;      % 変数のクリア
+close all;  % 図表のクリア
+
+org_img = imread('oage.png');   % 原画像の入力
+org_gray = rgb2gray(org_img);   % グレイスケール化
+
+imagesc(org_gray);      % 画像の表示
+colormap(gray);         % グレイスケールの範囲で表示
+colorbar;               % カラーバーの表示
+axis image;             % 元画像の比率に
+
+figure;
+imhist(org_gray);       % ヒストグラムの表示
+
+org_gray = double(org_gray);    % 要素を浮動小数点型に
+min_pix = min(min(org_gray));   % 要素の最小値
+max_pix = max(max(org_gray));   % 要素の最大値
+% ダイナミックレンジを0から255に
+org_gray2 = (org_gray - min_pix) / (max_pix - min_pix) * 7;
+org_gray2 = uint8(org_gray2);   % 要素を8ビット整数型に(この操作について考察)
+
+figure;
+imagesc(org_gray2);     % 画像の表示
+colormap(gray);         % グレイスケールの範囲で表示
+colorbar;               % カラーバーの表示
+axis image;             % 元画像の比率に
+
+figure;
+org_gray2 = uint8(org_gray2);   % 要素を8ビット整数型に(この操作について考察)
+imhist(org_gray2);              % ヒストグラムの表示
+
+return;

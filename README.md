@@ -34,6 +34,10 @@
 # 課題5 判別分析法
 判別分析法を用いて画像二値化せよ．
 
+[レポート](https://github.com/HackMasegawa/lecture_image_processing/blob/master/kadai05/kadai5.md)
+
+[ソースコード](https://github.com/HackMasegawa/lecture_image_processing/blob/master/kadai05/kadai5.m)
+
 # 課題6 画像の二値化
 画像を二値化せよ．
 

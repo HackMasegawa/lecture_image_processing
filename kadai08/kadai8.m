@@ -1,16 +1,28 @@
-% èª²é¡Œï¼˜ ãƒ©ãƒ™ãƒªãƒ³ã‚°
-% äºŒå€¤åŒ–ã•ã‚ŒãŸç”»åƒã®é€£çµæˆåˆ†ã«ãƒ©ãƒ™ãƒ«ã‚’ã¤ã‘ã‚ˆï¼
-% ä¸‹è¨˜ã¯ã‚µãƒ³ãƒ—ãƒ«ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã§ã‚ã‚‹ï¼ 
-% èª²é¡Œä½œæˆã«ã‚ãŸã£ã¦ã¯ã€ŒLennaã€ä»¥å¤–ã®ç”»åƒã‚’ç”¨ã„ã‚ˆï¼ 
-% ä¾‹
+% ‰Û‘è8 ƒ‰ƒxƒŠƒ“ƒO
+% 2’l‰»‚³‚ê‚½‰æ‘œ‚Ì˜AŒ‹¬•ª‚Éƒ‰ƒxƒ‹‚ğ‚Â‚¯‚æD
 
-ORG = imread('Lenna.jpg'); % ç”»åƒã®èª­ã¿è¾¼ã¿
-ORG = rgb2gray(ORG); % ç™½é»’æ¿ƒæ·¡ç”»åƒã«å¤‰æ›
-imagesc(ORG); colormap(gray); colorbar; % ç”»åƒã®è¡¨ç¤º
-pause;
-IMG = ORG > 128; % é–¾å€¤128ã§äºŒå€¤åŒ–
-imagesc(IMG); colormap(gray); colorbar; % ç”»åƒã®è¡¨ç¤º
-pause;
-IMG = bwlabeln(IMG);
-imagesc(IMG); colormap(jet); colorbar; % ç”»åƒã®è¡¨ç¤º
-pause;
+clear;      % •Ï”‚ÌƒNƒŠƒA
+close all;  % }•\‚ÌƒNƒŠƒA
+
+org_img = imread('asagao.png');	% Œ´‰æ‘œ‚Ì“ü—Í
+org_gray = rgb2gray(org_img);   % ƒOƒŒƒCƒXƒP[ƒ‹‰»
+imagesc(org_gray);              % ‰æ‘œ‚Ì•\¦
+colormap(gray);                 % ƒOƒŒƒCƒXƒP[ƒ‹‚Ì”ÍˆÍ‚Å•\¦
+colorbar;                       % ƒJƒ‰[ƒo[‚Ì•\¦
+axis image;                     % Œ³‰æ‘œ‚Ì”ä—¦‚É
+
+figure;
+thr128_img = org_gray > 128;    % è‡’l128‚Å2’l‰»
+imagesc(thr128_img);            % ‰æ‘œ‚Ì•\¦
+colormap(gray);                 % ƒOƒŒƒCƒXƒP[ƒ‹‚Ì”ÍˆÍ‚Å•\¦
+colorbar;                       % ƒJƒ‰[ƒo[‚Ì•\¦
+axis image;                     % Œ³‰æ‘œ‚Ì”ä—¦‚É
+
+figure;
+bwl_img = bwlabeln(thr128_img); % ˜AŒ‹¬•ª‚Ìƒ‰ƒxƒ‹•t‚¯
+imagesc(bwl_img);               % ‰æ‘œ‚Ì•\¦
+colormap(jet);                  % jet‚Ì”ÍˆÍ‚Å•\¦
+colorbar;                       % ƒJƒ‰[ƒo[‚Ì•\¦
+axis image;                     % Œ³‰æ‘œ‚Ì”ä—¦‚É
+
+return;

@@ -1,22 +1,43 @@
-% èª²é¡Œï¼™ ãƒ¡ãƒ‡ã‚£ã‚¢ãƒ³ãƒ•ã‚£ãƒ«ã‚¿ã¨å…ˆé‹­åŒ–
-% ãƒ¡ãƒ‡ã‚£ã‚¢ãƒ³ãƒ•ã‚£ãƒ«ã‚¿ãƒ¼ã‚’é©ç”¨ã—ï¼Œãƒã‚¤ã‚ºé™¤å»ã‚’ä½“é¨“ã›ã‚ˆï¼
-% å„è‡ªï¼ŒLennaä»¥å¤–ã®ç”»åƒã‚’ç”¨ã„ã‚ˆï¼
-% ä¾‹
+% ‰Û‘è9 ƒƒfƒBƒAƒ“ƒtƒBƒ‹ƒ^‚Ææ‰s‰»
+% ƒƒfƒBƒAƒ“ƒtƒBƒ‹ƒ^[‚ğ“K—p‚µCƒmƒCƒYœ‹‚ğ‘ÌŒ±‚¹‚æD
 
-ORG = imread('Lenna.jpg'); % ç”»åƒã®èª­ã¿è¾¼ã¿
-ORG = rgb2gray(ORG); % ç™½é»’æ¿ƒæ·¡ç”»åƒã«å¤‰æ›
-imagesc(ORG); colormap(gray); colorbar; % ç”»åƒã®è¡¨ç¤º
-pause;
-ORG = imnoise(ORG,'salt & pepper',0.02); % ãƒã‚¤ã‚ºæ·»ä»˜
-imagesc(ORG); colormap(gray); colorbar; % ç”»åƒã®è¡¨ç¤º
-pause;
-IMG = filter2(fspecial('average',3),ORG); % å¹³æ»‘åŒ–ãƒ•ã‚£ãƒ«ã‚¿ã§é›‘éŸ³é™¤å»
-imagesc(IMG); colormap(gray); colorbar; % ç”»åƒã®è¡¨ç¤º
-pause;
-IMG = medfilt2(ORG,[3 3]); % ãƒ¡ãƒ‡ã‚£ã‚¢ãƒ³ãƒ•ã‚£ãƒ«ã‚¿ã§é›‘éŸ³é™¤å»
-imagesc(IMG); colormap(gray); colorbar; % ç”»åƒã®è¡¨ç¤º
-pause;
-f=[0,-1,0;-1,5,-1;0,-1,0]; % ãƒ•ã‚£ãƒ«ã‚¿ã®è¨­è¨ˆ
-IMG = filter2(f,IMG,'same'); % ãƒ•ã‚£ãƒ«ã‚¿ã®é©ç”¨
-imagesc(IMG); colormap(gray); colorbar; % ç”»åƒã®è¡¨ç¤º
-pause;
+clear;      % •Ï”‚ÌƒNƒŠƒA
+close all;  % }•\‚ÌƒNƒŠƒA
+
+org_img = imread('asagao.png');	% Œ´‰æ‘œ‚Ì“ü—Í
+org_gray = rgb2gray(org_img);   % ƒOƒŒƒCƒXƒP[ƒ‹‰»
+imagesc(org_gray);              % ‰æ‘œ‚Ì•\¦
+colormap(gray);                 % ƒOƒŒƒCƒXƒP[ƒ‹‚Ì”ÍˆÍ‚Å•\¦
+colorbar;                       % ƒJƒ‰[ƒo[‚Ì•\¦
+axis image;                     % Œ³‰æ‘œ‚Ì”ä—¦‚É
+
+figure;
+noise_img = imnoise(org_gray, 'salt & pepper', 0.02);	% ƒmƒCƒY‚Ì“Y•t
+imagesc(noise_img);                                     % ‰æ‘œ‚Ì•\¦
+colormap(gray);                                         % ƒOƒŒƒCƒXƒP[ƒ‹‚Ì”ÍˆÍ‚Å•\¦
+colorbar;                                               % ƒJƒ‰[ƒo[‚Ì•\¦
+axis image;                                             % Œ³‰æ‘œ‚Ì”ä—¦‚É
+
+figure;
+ave_img = filter2(fspecial('average', 3), noise_img);   % •½ŠŠ‰»ƒtƒBƒ‹ƒ^“K—p
+imagesc(ave_img);                                       % ‰æ‘œ‚Ì•\¦
+colormap(gray);                                         % ƒOƒŒƒCƒXƒP[ƒ‹‚Ì”ÍˆÍ‚Å•\¦
+colorbar;                                               % ƒJƒ‰[ƒo[‚Ì•\¦
+axis image;                                             % Œ³‰æ‘œ‚Ì”ä—¦‚É
+
+figure;
+med_img = medfilt2(noise_img, [3 3]);	% ƒƒfƒBƒAƒ“ƒtƒBƒ‹ƒ^“K—p
+imagesc(med_img);                       % ‰æ‘œ‚Ì•\¦
+colormap(gray);                         % ƒOƒŒƒCƒXƒP[ƒ‹‚Ì”ÍˆÍ‚Å•\¦
+colorbar;                               % ƒJƒ‰[ƒo[‚Ì•\¦
+axis image;                             % Œ³‰æ‘œ‚Ì”ä—¦‚É
+
+figure;
+fil = [0, -1, 0; -1, 5, -1; 0, -1, 0];      % ©ìƒtƒBƒ‹ƒ^‚ÌİŒv
+fil_img = filter2(fil, noise_img, 'same');  % ©ìƒtƒBƒ‹ƒ^‚Ì“K—p
+imagesc(fil_img);                           % ‰æ‘œ‚Ì•\¦
+colormap(gray);                             % ƒOƒŒƒCƒXƒP[ƒ‹‚Ì”ÍˆÍ‚Å•\¦
+colorbar;                                   % ƒJƒ‰[ƒo[‚Ì•\¦
+axis image;                                 % Œ³‰æ‘œ‚Ì”ä—¦‚É
+
+return;

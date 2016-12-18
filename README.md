@@ -51,11 +51,23 @@
 # 課題8 ラベリング
 二値化された画像の連結成分にラベルをつけよ．
 
+[レポート](https://github.com/HackMasegawa/lecture_image_processing/blob/master/kadai08/kadai8.md)
+
+[ソースコード](https://github.com/HackMasegawa/lecture_image_processing/blob/master/kadai08/kadai8.m)
+
 # 課題9 メディアンフィルタと先鋭化
 メディアンフィルターを適用し，ノイズ除去を体験せよ．
 
+[レポート](https://github.com/HackMasegawa/lecture_image_processing/blob/master/kadai09/kadai9.md)
+
+[ソースコード](https://github.com/HackMasegawa/lecture_image_processing/blob/master/kadai09/kadai9.m)
+
 # 課題10 画像のエッジ抽出 
 次のプログラムを参考にして，エッジ抽出を体験せよ． 
+
+[レポート](https://github.com/HackMasegawa/lecture_image_processing/blob/master/kadai10/kadai10.md)
+
+[ソースコード](https://github.com/HackMasegawa/lecture_image_processing/blob/master/kadai10/kadai10.m)
 
 
 <!--

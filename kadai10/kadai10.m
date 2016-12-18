@@ -1,24 +1,35 @@
-% èª²é¡Œ10 ç”»åƒã®ã‚¨ãƒƒã‚¸æŠ½å‡º 
-% æ¬¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’å‚è€ƒã«ã—ã¦ï¼Œã‚¨ãƒƒã‚¸æŠ½å‡ºã‚’ä½“é¨“ã›ã‚ˆï¼
-% å„è‡ªï¼ŒLennaä»¥å¤–ã®ç”»åƒã‚’ç”¨ã„ã‚ˆï¼ 
-% ä¾‹
+% ‰Û‘è10 ‰æ‘œ‚ÌƒGƒbƒW’Šo 
+% Ÿ‚ÌƒvƒƒOƒ‰ƒ€‚ğQl‚É‚µ‚ÄCƒGƒbƒW’Šo‚ğ‘ÌŒ±‚¹‚æD
 
-ORG = imread('Lenna.jpg'); % åŸç”»åƒã®å…¥åŠ›
-ORG = rgb2gray(ORG); %ã‚«ãƒ©ãƒ¼ã‹ã‚‰ã‚°ãƒ¬ã‚¤ã¸ã®å¤‰æ›
-imagesc(ORG); colormap('gray'); colorbar;% ç”»åƒè¡¨ç¤º
-pause; % ä¸€æ™‚åœæ­¢
+clear;      % •Ï”‚ÌƒNƒŠƒA
+close all;  % }•\‚ÌƒNƒŠƒA
 
-IMG = edge(ORG,'prewitt'); % ã‚¨ãƒƒã‚¸æŠ½å‡ºï¼ˆãƒ—ãƒ¬ã‚¦ã‚£ãƒƒãƒˆæ³•ï¼‰
-imagesc(IMG); colormap('gray'); colorbar;% ç”»åƒè¡¨ç¤º
-pause; % ä¸€æ™‚åœæ­¢
+org_img = imread('asagao.png');	% Œ´‰æ‘œ‚Ì“ü—Í
+org_gray = rgb2gray(org_img);   % ƒOƒŒƒCƒXƒP[ƒ‹‰»
+imagesc(org_gray);              % ‰æ‘œ‚Ì•\¦
+colormap(gray);                 % ƒOƒŒƒCƒXƒP[ƒ‹‚Ì”ÍˆÍ‚Å•\¦
+colorbar;                       % ƒJƒ‰[ƒo[‚Ì•\¦
+axis image;                     % Œ³‰æ‘œ‚Ì”ä—¦‚É
 
-IMG = edge(ORG,'sobel'); % ã‚¨ãƒƒã‚¸æŠ½å‡ºï¼ˆã‚½ãƒ™ãƒ«æ³•ï¼‰
-imagesc(IMG); colormap('gray'); colorbar;% ç”»åƒè¡¨ç¤º
-pause; % ä¸€æ™‚åœæ­¢
+figure;
+pre_edge = edge(org_gray, 'prewitt');   % ƒGƒbƒWŒŸo(ƒvƒŒƒEƒBƒbƒg–@)
+imagesc(pre_edge);                      % ‰æ‘œ‚Ì•\¦
+colormap(gray);                         % ƒOƒŒƒCƒXƒP[ƒ‹‚Ì”ÍˆÍ‚Å•\¦
+colorbar;                               % ƒJƒ‰[ƒo[‚Ì•\¦
+axis image;                             % Œ³‰æ‘œ‚Ì”ä—¦‚É
 
-IMG = edge(ORG,'canny'); % ã‚¨ãƒƒã‚¸æŠ½å‡ºï¼ˆã‚­ãƒ£ãƒ‹ãƒ¼æ³•ï¼‰
-imagesc(IMG); colormap('gray'); colorbar;% ç”»åƒè¡¨ç¤º
-pause; % ä¸€æ™‚åœæ­¢
+figure;
+sob_edge = edge(org_gray, 'sobel');     % ƒGƒbƒWŒŸo(ƒ\ƒxƒ‹–@)
+imagesc(sob_edge);                      % ‰æ‘œ‚Ì•\¦
+colormap(gray);                         % ƒOƒŒƒCƒXƒP[ƒ‹‚Ì”ÍˆÍ‚Å•\¦
+colorbar;                               % ƒJƒ‰[ƒo[‚Ì•\¦
+axis image;                             % Œ³‰æ‘œ‚Ì”ä—¦‚É
 
+figure;
+can_edge = edge(org_gray, 'canny');     % ƒGƒbƒWŒŸo(ƒLƒƒƒj[–@)
+imagesc(can_edge);                      % ‰æ‘œ‚Ì•\¦
+colormap(gray);                         % ƒOƒŒƒCƒXƒP[ƒ‹‚Ì”ÍˆÍ‚Å•\¦
+colorbar;                               % ƒJƒ‰[ƒo[‚Ì•\¦
+axis image;                             % Œ³‰æ‘œ‚Ì”ä—¦‚É
 
-
+return;
